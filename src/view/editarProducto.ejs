@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/productos">Regresar</a>
+    </nav>
+    <form action="/editarProducto/<%=data.id%>" method="post">
+        <label>Nombre</label>
+        <input name="nombre" type="text" value="<%=data.nombre%>">
+        <label>Precio</label>
+        <input name="precio" type="text" value="<%=data.precio%>">
+        <input type="submit" value="Actualizar">
+    </form>
+</body>
+</html>

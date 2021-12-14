@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <a href="/listarProductos">Modulo Producto</a>
+    </nav>
+    <div class="main">
+        <div class="tabla">
+            <h2>Tabla Compradores</h2>
+            <table>
+                <tr class="encabezado">
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Acciones</th>
+                </tr>
+
+                <% for(var i=0; i< data.length; i++) { %>
+                    <tr class="contenido-tabla">
+                        <td>
+                            <%=data[i].id%>
+                        </td>
+                        <td>
+                            <%=data[i].nombre%>
+                        </td>
+                        <td>
+                            <%=data[i].apellido%>
+                        </td>
+                        <td>
+                            <%=data[i].direccion%>
+                        </td>
+                        <td>
+                            <%=data[i].telefono%>
+                        </td>
+                        <td>
+                            <nav>
+                                <a class="eliminar" href="/delete/<%=data[i].id%>">Eliminar</a>
+                                <a class="editar" href="/update/<%=data[i].id%>">Editar</a>
+                            </nav>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+        <div class="formulario">
+            <h1>Formulario Compradores</h1>
+            <div class="contenido-formulario">
+                <form action="/add" method="post">
+                    <label>Nombre</label>
+                    <input id="nombre" class="input-text" name="nombre" type="text" placeholder="Ingresa Nombre">
+                    <label>Apellido</label>
+                    <input id="apellido" class="input-text" name="apellido" type="text" placeholder="Ingresa Apellido">
+                    <label>Direccion</label>
+                    <input id="direccion" class="input-text" name="direccion" type="text" placeholder="Ingresa Direccion">
+                    <label>Telefono</label>
+                    <input id="telefono" class="input-text" name="telefono" type="text" placeholder="Ingresa Telefono">
+                    <div class="boton-container">
+                        <input class="boton" type="submit" value="Ingresar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<!--
+    ***********AQUI VA EL CSS DE ESTA PAGINA
+***************-->
+<style>
+    .main {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tabla table,
+    td,
+    tr,
+    th {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    th,
+    td,
+    tr {
+        padding: 25px 15px;
+    }
+
+    table {
+        background-color: #ABB2B9;
+        border-radius: 3%;
+        border-bottom: 5px solid #BF360C;
+    }
+
+    .tabla h2{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #BF360C;
+    }
+
+    .encabezado {
+        transition: 0.5s;
+    }
+
+    .encabezado:hover {
+        background-color: #F8C471;
+    }
+
+    .contenido-tabla {
+        transition: 0.5s;
+    }
+
+    .contenido-tabla:hover {
+        background-color: #81C784;
+    }
+
+    .eliminar {
+        background-color: red;
+        color: white;
+        padding: 3px 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .editar {
+        background-color: blue;
+        color: white;
+        padding: 3px 5px;
+        font-weight: bold;
+        margin-top: 5px;
+        text-decoration: none;
+    }
+
+    /*FORMULARIO*/
+
+    .formulario {
+        width: 50%;
+    }
+
+    .formulario form{
+        padding: 8px;
+        background-color: #7B241C;
+        height: 300px;
+    }
+
+    .formulario form label{
+        color: white;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .formulario form .input-text{
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid white;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .contenido-formulario form {
+        display: grid;
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        border-radius: 3%;
+        border-bottom: 3px solid #52BE80;
+    }
+
+    .contenido-formulario {
+        display: flex;
+        justify-content: center;
+    }
+
+    .boton-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .boton-container .boton{
+        width: 40%;
+        background-color: darkgreen;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: white;
+        border: 5px solid green;
+        transition: 0.5s;
+    }
+
+    .boton:hover{
+        background-color: green;
+    }
+
+    .formulario h1 {
+        text-align: center;
+        color: darkgreen;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+
+    }
+
+    .contenido-formulario form input {
+        margin-bottom: 10px;
+    }
+</style>
+
+</html>

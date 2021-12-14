@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="contenido">
+        <div class="titulo">
+            <h1>Editar Comprador</h1>
+        </div>
+        <div class="formulario">
+            <form action="/update/<%=data.id%>" method="post">
+                <label>Nombre</label>
+                <input class="input-text" name="nombre" type="text" value="<%=data.nombre%>">
+                <label>Apellido</label>
+                <input class="input-text" name="apellido" type="text" value="<%=data.apellido%>">
+                <label>Direccion</label>
+                <input class="input-text" name="direccion" type="text" value="<%=data.direccion%>">
+                <label>Telefono</label>
+                <input class="input-text" name="telefono" type="text" value="<%=data.telefono%>">
+                <div class="boton-container">
+                    <input class="boton" type="submit" value="Editar">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        background-color: gray;
+        margin:0;
+    }
+
+    .contenido{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .titulo{
+        height: 250px;
+        text-align: center;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        background-color: darkslategray;
+    }
+
+    .formulario form {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        background-color: white;
+        margin-top: -100px;
+        height: 300px;
+        width: 750px;
+        padding: 15px;
+        border-radius: 3%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .formulario form .input-text{
+        margin-bottom: 10px;
+        border:none;
+        border-bottom: 2px solid black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+    }
+
+    .formulario {
+        display: flex;
+        justify-content: center;
+    }
+
+    .boton-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .boton-container .boton{
+        width: 40%;
+        height: 40px;
+        background-color: darkgreen;
+        border: 5px solid green;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        transition: 0.5s;
+    }
+
+    .boton-container .boton:hover{
+        background-color: green;
+    }
+
+</style>
+
+</html>

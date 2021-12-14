@@ -1,0 +1,9 @@
+npm init --yes  --> para que se cree el package.json
+npm install express --> para instalar express
+npm install mysql --> mysql
+npm install express-myconnection ---> para escribir codigo sql mas rapido
+npm install morgan --> para ver las peticiones que llegan al servidor
+npm install ejs --> motor de plantillas html (como decir los jsp)
+npm install nodemon --> para que se reinicie el servidor cada vez que guardo cambios
+__dirname: el dirname me devuelve el path completo del archivo donde se está ejecutan, en este caso es (app.js)
+middlewares: son funciones que se ejecutan antes que vengan las peticiones de los usuarios

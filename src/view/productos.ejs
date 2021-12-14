@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <nav><a href="/">Regresar</a></nav>
+    </div>
+    <div class="main">
+        <div class="contenedor-tabla">
+            <div class="titulo-tabla">
+                <h1>Tabla de Productos</h1>
+            </div>
+            <div class="tabla">
+                <table>
+                    <tr>
+                        <td>Id</td>
+                        <td>Nombre</td>
+                        <td>Precio</td>
+                        <td>Acciones</td>
+                    </tr>
+                    <% for(var i=0; i<data.length; i++) { %>
+                        <tr>
+                            <td><%=data[i].id%></td>
+                            <td><%=data[i].nombre%></td>
+                            <td><%=data[i].precio%></td>
+                            <td>
+                                <a href="/eliminarProducto/<%=data[i].id%>">Eliminar</a>
+                                <a href="/editarProducto/<%=data[i].id%>">Editar</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+        </div>
+
+        <div class="contenedor-formulario">
+            <div class="titulo">
+                <h1>Ingresar Producto</h1>
+            </div>
+            <div class="formulario">
+                <form action="/agregar" method="post">
+                    <label>Nombre</label>
+                    <input class="input-text" name="nombre" type="text" placeholder="Nombre Producto">
+                    <label>Precio</label>
+                    <input class="input-text" name="precio" type="number" placeholder="Precio Producto">
+                    <div class="boton">
+                        <input type="submit" value="Ingresar Producto">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+<!--
+     DANDOLE ESTILO A LA PÁGINA
+ -->
+
+<style>
+    body {
+        background-color: #90AFC5;
+    }
+
+    .main {
+        display: flex;
+        justify-content: center;
+    }
+
+    .contenedor-tabla table {
+        background-color: #336B87;
+    }
+
+    .contenedor-tabla {
+        width: 50%;
+    }
+
+    .contenedor-tabla .tabla{
+        display: flex;
+        justify-content: center;
+    }
+
+    .contenedor-tabla .tabla table{
+        padding: 10px;
+        width: 90%;
+        border-radius: 3%;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+    .contenedor-tabla .tabla table td,tr{
+        padding: 5px;
+    }
+
+    .contenedor-tabla .titulo-tabla{
+        color: #336B87;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        text-align: center;
+    }
+
+
+    .contenedor-tabla .titulo-tabla h1{
+        font-size: 30px;
+    }
+
+    a{
+        color: white;
+    }
+
+    /*EDITANDO FORMULARIO*/
+    .titulo h1 {
+        text-align: center;
+        color: #336B87;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .contenedor-formulario {
+        width: 50%;
+    }
+
+    .contenedor-formulario form {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .formulario {
+        display: flex;
+        justify-content: center;
+    }
+
+    .formulario form {
+        width: 90%;
+        background-color: #2A3132;
+        padding: 10px;
+        border-radius: 3%;
+    }
+
+    .formulario form label {
+        margin-bottom: 7px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+    .boton {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .input-text {
+        margin-bottom: 20px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        border-bottom: 2px solid white;
+    }
+
+    .boton input {
+        width: 200px;
+        height: 35px;
+        background-color: #763626;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        border: none;
+    }
+</style>
+
+</html>
